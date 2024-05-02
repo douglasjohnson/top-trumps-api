@@ -15,14 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Authenticate
-        uses: google-github-actions/auth@v2
+      - uses: google-github-actions/auth@v2
         with:
           credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
-      - name: Deploy
-        uses: google-github-actions/deploy-cloudrun@v2
+      - uses: google-github-actions/deploy-cloudrun@v2
         with:
           service: 'spring-boot-open-api-mongodb'
           image: 'douglasjohnson/spring-boot-open-api-mongodb'
-      - name: Use output
-        run: 'curl "${{ steps.deploy.outputs.url }}"'
