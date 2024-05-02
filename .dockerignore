@@ -1,7 +1,2 @@
-.github
-.gradle
-.idea
-build
-!build/libs/*.jar
-gradle
-src
+*
+!/build/libs/*.jar
