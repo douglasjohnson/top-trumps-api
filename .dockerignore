@@ -1,0 +1,7 @@
+.github
+.gradle
+.idea
+build
+!build/libs/
+gradle
+src
