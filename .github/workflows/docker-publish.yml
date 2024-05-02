@@ -4,7 +4,6 @@ on:
   workflow_run:
     workflows: [Build]
     types: [completed]
-    branches: ['main']
 
 permissions:
   contents: read
@@ -22,4 +21,4 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
       - name: Build
-        run: ./gradlew bootBuildImage --publishImage
+        run: ./gradlew bootBuildImage --publishImage -PDOCKERHUB_USERNAME=${{ vars.DOCKERHUB_USERNAME }} -PDOCKERHUB_ACCESS_TOKEN=${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
