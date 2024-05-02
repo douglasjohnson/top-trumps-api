@@ -72,3 +72,13 @@ sourceSets {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+tasks.named('bootBuildImage') {
+    imageName.set('douglasjohnson/${project.name}')
+    docker {
+        publishRegistry {
+            username = '${DOCKERHUB_USERNAME}'
+            password = '${DOCKERHUB_ACCESS_TOKEN}'
+        }
+    }
+}
