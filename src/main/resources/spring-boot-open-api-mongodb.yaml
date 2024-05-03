@@ -1,43 +1,43 @@
 openapi: 3.0.0
 info:
-  title: Sample API
+  title: Top Trumps API
   version: 0.0.1
 servers:
   - url: http://localhost:8080
 paths:
-  /users:
+  /decks:
     get:
       operationId: findAll
-      summary: Returns a list of users.
+      summary: Returns a list of decks.
       responses:
         '200':
-          description: An array of users
+          description: An array of decks
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/User'
+                  $ref: '#/components/schemas/Deck'
     post:
       operationId: create
-      summary: create a new user
+      summary: create a new deck
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: '#/components/schemas/Deck'
       responses:
         '201':
-          description: Created user
+          description: Created deck
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
-  /users/{id}:
+                $ref: '#/components/schemas/Deck'
+  /decks/{id}:
     get:
       operationId: find
-      summary: find a user
+      summary: find a deck
       parameters:
         - in: path
           name: id
@@ -46,14 +46,14 @@ paths:
           required: true
       responses:
         '200':
-          description: user
+          description: deck
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/Deck'
     patch:
       operationId: update
-      summary: update a user
+      summary: update a deck
       parameters:
         - in: path
           name: id
@@ -65,17 +65,17 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: '#/components/schemas/Deck'
       responses:
         '200':
-          description: Updated user
+          description: Updated deck
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/Deck'
     delete:
       operationId: delete
-      summary: delete a user
+      summary: delete a deck
       parameters:
         - in: path
           name: id
@@ -84,13 +84,51 @@ paths:
           required: true
       responses:
         '204':
-          description: deleted user
+          description: deleted deck
 components:
   schemas:
-    User:
+    Deck:
       type: object
       properties:
         id:
           type: string
         name:
+          type: string
+        imageUrl:
+          type: string
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttributeType'
+        cards:
+          type: array
+          items:
+            $ref: '#/components/schemas/Card'
+    Card:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        imageUrl:
+          type: string
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attribute'
+    Attribute:
+      type: object
+      properties:
+        type:
+          type: string
+        value:
+          type: number
+          format: float
+    AttributeType:
+      type: object
+      properties:
+        name:
+          type: string
+        units:
           type: string
