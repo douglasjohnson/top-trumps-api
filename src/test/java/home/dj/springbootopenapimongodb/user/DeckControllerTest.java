@@ -1,13 +1,12 @@
 package home.dj.springbootopenapimongodb.user;
 
-import home.dj.model.User;
+import home.dj.model.Deck;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
@@ -19,26 +18,26 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(UserController.class)
+@WebMvcTest(DeckController.class)
 @ExtendWith(MockitoExtension.class)
-class UserControllerTest {
+class DeckControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
     @MockBean
-    private UserService userService;
+    private DeckService deckService;
 
     @Test
     void findAll_shouldReturnAllUsers() throws Exception {
-        when(userService.findAll()).thenReturn(List.of(new User().id("1").name("User 1")));
+        when(deckService.findAll()).thenReturn(List.of(new Deck().id("1").name("Deck 1")));
 
         String expected = """
                 [{
                   id: '1',
-                  name: 'User 1'
+                  name: 'Deck 1'
                 }]
                 """;
-        this.mockMvc.perform(get("/users"))
+        this.mockMvc.perform(get("/decks"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(APPLICATION_JSON))
