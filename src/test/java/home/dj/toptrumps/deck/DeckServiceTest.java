@@ -1,4 +1,4 @@
-package home.dj.springbootopenapimongodb.user;
+package home.dj.toptrumps.deck;
 
 import home.dj.model.Deck;
 import org.junit.jupiter.api.BeforeEach;

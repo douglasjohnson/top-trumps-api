@@ -1,4 +1,4 @@
-package home.dj.springbootopenapimongodb.user;
+package home.dj.toptrumps.deck;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;

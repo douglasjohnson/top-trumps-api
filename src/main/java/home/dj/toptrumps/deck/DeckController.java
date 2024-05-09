@@ -1,4 +1,4 @@
-package home.dj.springbootopenapimongodb.user;
+package home.dj.toptrumps.deck;
 
 import home.dj.api.DecksApi;
 import home.dj.model.Deck;

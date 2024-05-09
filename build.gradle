@@ -48,7 +48,7 @@ dependencies {
 
 openApiGenerate {
     generatorName.set("spring")
-    inputSpec.set("$rootDir/src/main/resources/spring-boot-open-api-mongodb.yaml")
+    inputSpec.set("$rootDir/src/main/resources/top-trumps-api.yaml")
     outputDir.set("$buildDir/generated/openapi")
     apiPackage.set("home.dj.api")
     modelPackage.set("home.dj.model")

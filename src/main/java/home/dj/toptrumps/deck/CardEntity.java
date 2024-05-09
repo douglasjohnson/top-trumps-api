@@ -1,4 +1,4 @@
-package home.dj.springbootopenapimongodb.user;
+package home.dj.toptrumps.deck;
 
 import lombok.Builder;
 import lombok.Data;
