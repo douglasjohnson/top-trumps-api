@@ -30,7 +30,7 @@ dependencies {
 
     implementation 'io.swagger.core.v3:swagger-annotations:2.2.21'
     implementation 'org.openapitools:jackson-databind-nullable:0.2.6'
-    implementation 'com.google.cloud:google-cloud-storage'
+    implementation 'com.google.cloud:google-cloud-storage:2.38.0'
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
