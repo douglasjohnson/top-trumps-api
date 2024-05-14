@@ -85,6 +85,31 @@ paths:
       responses:
         '204':
           description: deleted deck
+  /images:
+    post:
+      operationId: uploadImage
+      summary: upload an image
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+              required:
+                - file
+      responses:
+        '201':
+          description: Created image
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
 components:
   schemas:
     Deck:
