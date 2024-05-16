@@ -26,11 +26,16 @@ jobs:
       - uses: docker/metadata-action@v5
         id: meta
         with:
-          images: douglasjohnson/top-trumps-api
+          images:
+            douglasjohnson/top-trumps-api
+            europe-west1-docker.pkg.dev/spring-boot-open-api-mongodb/top-trumps-api
       - uses: docker/login-action@v3
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
+      - uses: google-github-actions/auth@v2
+        with:
+          credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
       - uses: docker/build-push-action@v5
         with:
           context: .
