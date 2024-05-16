@@ -5,6 +5,9 @@ on:
     workflows: [Build]
     types: [completed]
     branches: ['main']
+  push:
+    tags:
+      - '*.*.*'
 
 permissions:
   contents: read
