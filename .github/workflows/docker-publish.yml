@@ -7,7 +7,7 @@ on:
     branches: ['main']
   push:
     tags:
-      - 'v*.*.*'
+      - '*.*.*'
 
 permissions:
   contents: read
