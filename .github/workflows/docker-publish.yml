@@ -26,16 +26,12 @@ jobs:
       - uses: docker/metadata-action@v5
         id: meta
         with:
-          images: europe-west1-docker.pkg.dev/spring-boot-open-api-mongodb/top-trumps-api
-      - uses: google-github-actions/auth@v2
-        id: auth
-        with:
-          credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
+          images: spring-boot-open-api-mongodb/top-trumps-api
       - uses: docker/login-action@v3
         with:
-          registry: gcr.io
-          username: oauth2accesstoken
-          password: ${{ steps.auth.outputs.access_token }}
+          registry: europe-west1-docker.pkg.dev
+          username: _json_key
+          password: ${{ secrets.GOOGLE_CREDENTIALS }}
       - uses: docker/build-push-action@v5
         with:
           context: .
