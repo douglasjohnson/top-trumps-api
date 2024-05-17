@@ -1,10 +1,16 @@
 name: Build
 
-on: [push]
+on:
+  push:
+    branches: ['*']
 
 permissions:
   contents: read
   checks: write
+
+concurrency:
+  group: "build"
+  cancel-in-progress: true
 
 jobs:
   Build:
