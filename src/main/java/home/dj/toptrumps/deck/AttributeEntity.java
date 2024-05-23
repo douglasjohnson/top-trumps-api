@@ -7,5 +7,5 @@ import lombok.Data;
 @Builder
 public class AttributeEntity {
     private String type;
-    private String value;
+    private Double value;
 }
