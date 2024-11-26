@@ -9,3 +9,14 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      security-updates:
+        applies-to: security-updates
+        update-types:
+          - minor
+          - patch
+      version-updates:
+        applies-to: version-updates
+        update-types:
+          - minor
+          - patch
