@@ -12,10 +12,6 @@ permissions:
   contents: read
   checks: write
 
-concurrency:
-  group: "build"
-  cancel-in-progress: true
-
 jobs:
   Build:
     runs-on: ubuntu-latest
